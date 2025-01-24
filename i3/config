@@ -20,7 +20,7 @@ client.unfocused        #009900 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-client.background       #ffffff
+client.background       #000000
 
 # ================ Keybindings =================
 set $mod Mod4
@@ -30,7 +30,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec --no-startup-id ghostty
 # file manager 
-bindsym $mod+Ctrl+e exec --no-startup-id pcmanfm
+bindsym $mod+Ctrl+e exec --no-startup-id nautilus
 # kill focused window
 bindsym $mod+q kill
 
@@ -149,7 +149,7 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144
 exec_always --no-startup-id python3 ~/.config/autotiling/autotiling/main.py --limit 2
-exec_always --no-startup-id feh --recursive --bg-scale ~/Pictures/Wallpapers/bush.png &
+exec_always --no-startup-id feh --recursive --bg-scale ~/Pictures/Wallpapers/gruvbox_astro.jpg &
 exec_always --no-startup-id xinput set-prop 9 304 1
 exec_always --no-startup-id xinput set-prop 9 331 1
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
