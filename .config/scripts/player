@@ -1,0 +1,60 @@
+# #!/bin/bash
+#
+# artist=$(playerctl metadata artist 2>/dev/null)
+# title=$(playerctl metadata title 2>/dev/null)
+#
+# if [ -z "$artist" ] || [ -z "$title" ]; then
+#   output=""
+# else
+#   output=" $title - $artist"
+# fi
+#
+# if [[ ${#output} -gt 30 ]]; then
+#   echo "${output:0:27}…"
+# else
+#   echo "$output"
+# fi
+
+# --------------------
+
+#!/bin/bash
+
+# Get the currently playing player
+player_name=$(playerctl -l | while read player; do
+  if playerctl --player="$player" status 2>/dev/null | grep -q "Playing"; then
+    echo "$player"
+    break
+  fi
+done)
+
+# Exit if no active player is found
+if [ -z "$player_name" ]; then
+  echo ""
+  exit 0
+fi
+
+# Get metadata from the active player
+url=$(playerctl --player="$player_name" metadata xesam:url 2>/dev/null)
+artist=$(playerctl --player="$player_name" metadata artist 2>/dev/null)
+title=$(playerctl --player="$player_name" metadata title 2>/dev/null)
+
+# Determine icon based on player and URL
+icon=""
+if [ "$player_name" = "spotify" ]; then
+  icon=" "
+elif echo "$url" | grep -qE "youtube\.com|youtu\.be"; then
+  icon=" "
+fi
+
+# Build output string
+output="$icon$title"
+if [ -n "$artist" ]; then
+  output="$icon$title ~ $artist"
+fi
+
+# Truncate output if needed
+if [ ${#output} -gt 40 ]; then
+  echo "${output:0:35}…"
+else
+  echo "$output"
+fi

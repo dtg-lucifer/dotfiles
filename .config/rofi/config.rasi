@@ -1,0 +1,117 @@
+configuration {
+    modi: "window,drun,run,filebrowser";
+    drun-display-format: "{icon} {name}";
+    font: "FiraCode Nerd Font Mono Medium 10";
+    show-icons: true;
+    icon-theme: "Papirus";
+    display-drun: "Apps ";
+    display-run: "Command ⌦";
+    display-window: "Windows 🗔";
+    display-filebrowser: "Files 📂";
+    opacity: 0.5;
+}
+
+@theme "DarkBlue"
+
+* {
+   text-color:       #ebdbb2;
+   background-color: #28282800;
+   border-color:     #458588;
+   padding:          5px 5px;
+    g-spacing: 10px;
+    g-margin: 0;
+    b-color: #000000FF;
+    fg-color: #FFFFFFFF;
+    fgp-color: #888888FF;
+    b-radius: 8px;
+    g-padding: 8px;
+    hl-color: #FFFFFFFF;
+    hlt-color: #000000FF;
+    alt-color: #111111FF;
+    wbg-color: #000000CC;
+    w-border: 2px solid;
+    w-border-color: #FFFFFFFF;
+    w-padding: 12px;
+}
+window {
+  width: 30%;
+  // location: north;
+  // anchor: north;
+  border: 1;
+  border-radius: 5;
+  padding: 10px;
+  background-color: #191919;
+  transprency: "real";
+  opacity: 0.5;
+  border-radius: @b-radius;
+  padding: @w-padding;
+}
+
+listview {
+    columns: 1;
+    lines: 7;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+
+prompt {
+    text-color: @fg-color;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "Search Apps";
+    text-color: @fg-color;
+    placeholder-color: @fgp-color;
+}
+
+mainbox {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    border: 0px solid;
+    border-radius: @b-radius;
+    border-color: @b-color;
+    // background-color: transparent;
+    text-color: @fg-color;
+}
+
+element normal.normal {
+	// background-color: transparent;
+	text-color: @fg-color;
+}
+
+element alternate.normal {
+	// background-color: #606060;
+	text-color: @fg-color;
+}
+
+element selected.active {
+	// background-color: #0000ff;
+	text-color: @hlt-color;
+}
+
+element selected.normal {
+	// background-color: #0000cc;
+	text-color: @hlt-color;
+}
+
+message {
+    background-color: red;
+    border: 0px solid;
+}

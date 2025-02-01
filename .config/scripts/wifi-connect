@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: wifi-connect <NETWORK_NAME>"
+  exit 1
+fi
+
+NETWORK_NAME="$1"
+
+if ! nmcli device wifi list | grep -q "$NETWORK_NAME"; then
+  echo "Error: No network with SSID '$NETWORK_NAME' found. Refreshing network list..."
+  sudo nmcli device wifi rescan
+  sleep 2
+  if ! nmcli device wifi list | grep -q "$NETWORK_NAME"; then
+    echo "Error: Network '$NETWORK_NAME' still not found after rescan."
+    exit 1
+  fi
+fi
+
+sudo nmcli device wifi connect "$NETWORK_NAME" --ask -s
+
+if [ $? -eq 0 ]; then
+  echo "Successfully connected to $NETWORK_NAME."
+else
+  echo "Failed to connect to $NETWORK_NAME. Please check the network name and password."
+fi
+

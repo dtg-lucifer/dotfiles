@@ -1,0 +1,14 @@
+#drun {
+    display-icons: true;
+    font: "Noto Sans 12"; /* Change this to your preferred font with icons */
+}
+
+#element {
+    /* Add padding for icons */
+    padding: 5px 0;
+}
+
+#element-icon {
+    size: 1.2em;
+    padding: 0 5px 0 0;
+}

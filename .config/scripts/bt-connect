@@ -1,0 +1,121 @@
+#!/bin/bash
+
+# Function to display usage information
+usage() {
+  echo "Usage: bluetooth-connect <DEVICE_NAME>"
+  echo "       bluetooth-connect -d <DEVICE_NAME>"
+  echo "       bluetooth-connect -p (play music)"
+  echo "       bluetooth-connect -s (pause music)"
+  exit 1
+}
+
+# Check if an argument is provided
+if [ -z "$1" ]; then
+  echo "Error: Argument is required."
+  usage
+fi
+
+# Parse arguments
+case "$1" in
+  -d)
+    ACTION="disconnect"
+    DEVICE_NAME="$2"
+    ;;
+  -p)
+    ACTION="play"
+    ;;
+  -s)
+    ACTION="pause"
+    ;;
+  *)
+    ACTION="connect"
+    DEVICE_NAME="$1"
+    ;;
+esac
+
+# Validate device name for connect/disconnect actions
+if { [ "$ACTION" = "connect" ] || [ "$ACTION" = "disconnect" ]; } && [ -z "$DEVICE_NAME" ]; then
+  echo "Error: Device name is required."
+  usage
+fi
+
+# Ensure Bluetooth is powered on
+if bluetoothctl show | grep -q "Powered: no"; then
+  echo "Turning on Bluetooth..."
+  bluetoothctl power on >> /dev/null
+  sleep 2
+fi
+
+# Perform play/pause actions
+if [ "$ACTION" = "play" ]; then
+  echo "Sending play command to Bluetooth audio device..."
+  dbus-send --system --dest=org.bluez --print-reply \
+    --type=method_call /org/bluez/hci0/dev_XX_XX_XX_XX_XX_XX/player0 org.bluez.MediaPlayer1.Play >> /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo "Play command sent successfully."
+  else
+    echo "Failed to send play command. Ensure the device supports media control."
+  fi
+  exit 0
+fi
+
+if [ "$ACTION" = "pause" ]; then
+  echo "Sending pause command to Bluetooth audio device..."
+  dbus-send --system --dest=org.bluez --print-reply \
+    --type=method_call /org/bluez/hci0/dev_XX_XX_XX_XX_XX_XX/player0 org.bluez.MediaPlayer1.Pause >> /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo "Pause command sent successfully."
+  else
+    echo "Failed to send pause command. Ensure the device supports media control."
+  fi
+  exit 0
+fi
+
+# Search for the specified device in the paired list
+DEVICE_MAC=$(bluetoothctl devices | grep -F "$DEVICE_NAME" | awk '{print $2}')
+
+# If not found, scan for devices
+if [ -z "$DEVICE_MAC" ]; then
+  echo "Device '$DEVICE_NAME' not found in paired devices. Scanning for new devices..."
+  bluetoothctl scan on >> /dev/null &
+  sleep 5
+  bluetoothctl scan off >> /dev/null
+  DEVICE_MAC=$(bluetoothctl devices | grep -F "$DEVICE_NAME" | awk '{print $2}')
+
+  if [ -z "$DEVICE_MAC" ]; then
+    echo "Error: Device '$DEVICE_NAME' not found after scanning. Make sure the device is discoverable."
+    exit 1
+  fi
+
+  echo "Attempting to pair with $DEVICE_NAME ($DEVICE_MAC)..."
+  if ! bluetoothctl pair "$DEVICE_MAC" >> /dev/null; then
+    echo "Error: Failed to pair with $DEVICE_NAME."
+    exit 1
+  fi
+
+  echo "Successfully paired with $DEVICE_NAME."
+fi
+
+# Perform the desired action
+case "$ACTION" in
+  connect)
+    echo "Connecting to $DEVICE_NAME ($DEVICE_MAC)..."
+    if bluetoothctl connect "$DEVICE_MAC" >> /dev/null; then
+      echo "Successfully connected to $DEVICE_NAME."
+    else
+      echo "Failed to connect to $DEVICE_NAME."
+    fi
+    ;;
+  disconnect)
+    echo "Disconnecting from $DEVICE_NAME ($DEVICE_MAC)..."
+    if bluetoothctl disconnect "$DEVICE_MAC" >> /dev/null; then
+      echo "Successfully disconnected from $DEVICE_NAME."
+    else
+      echo "Failed to disconnect from $DEVICE_NAME."
+    fi
+    ;;
+  *)
+    echo "Error: Unknown action."
+    usage
+    ;;
+esac
