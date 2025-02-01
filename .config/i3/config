@@ -41,7 +41,7 @@ bindsym $mod+Return exec --no-startup-id ghostty
 bindsym Mod1+Return exec --no-startup-id ghostty
 bindsym Mod1+t exec --no-startup-id ghostty
 
-bindsym $mod+l exec --no-startup-id i3lock -i /home/piush/Pictures/Wallpapers/sky_wallpaper.png
+# bindsym $mod+l exec --no-startup-id i3lock -i /home/piush/Pictures/Wallpapers/sky_wallpaper.png
 
 # file manager 
 bindsym $mod+Ctrl+e exec --no-startup-id nautilus
@@ -60,16 +60,16 @@ bindsym Mod1+space exec rofi -show drun -normal-window
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym Mod1+j focus down
-bindsym Mod1+k focus up
-bindsym Mod1+l focus right
-bindsym Mod1+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
 
 # move focused window
-bindsym Mod1+Shift+j move down
-bindsym Mod1+Shift+k move up
-bindsym Mod1+Shift+l move right
-bindsym Mod1+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen
@@ -191,8 +191,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144
-exec_always --no-startup-id xrandr --output HDMI-A-1-0 --mode 1920x1080 --rate 100 --right-to eDP
-# exec_always --no-startup-id sudo fusuma -d
+# exec_always --no-startup-id xrandr --output HDMI-A-1-0 --mode 1920x1080 --rate 100 --right-to eDP
 
 exec_always --no-startup-id python3 ~/.config/autotiling/autotiling/main.py --limit 2
 exec_always --no-startup-id feh --recursive --bg-scale ~/Pictures/Wallpapers/gruvbox_astro.jpg &
