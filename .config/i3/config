@@ -43,6 +43,10 @@ bindsym Mod1+t exec --no-startup-id ghostty
 
 # bindsym $mod+l exec --no-startup-id i3lock -i /home/piush/Pictures/Wallpapers/sky_wallpaper.png
 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
 # file manager 
 bindsym $mod+Ctrl+e exec --no-startup-id nautilus
 # kill focused window
