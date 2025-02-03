@@ -36,11 +36,13 @@ alias l="colorls"
 alias lc="colorls -a"
 alias la="colorls -la"
 alias ls="colorls -l"
+# alias ls="eza --color=always --long --icons=always"
 alias tree="colorls --tree --report"
 alias t="colorls --tree"
 alias dc="docker compose"
 alias lg="lazygit"
 alias cat="batcat"
+# alias fzf="fzf --exclude node_modules --exclude .git"
 
 alias ganache="/home/piush/Apps/squashfs-root/Ganache --no-sandbox"
 
@@ -56,3 +58,16 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export OPENAI_KEY=
 export PATH=$PATH:/usr/local/bin:/opt/clion-2024.3.2/bin/clion
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
+export FZF_CTRL_T_COMMAND="$FZF_CTRL_T_COMMAND"
+
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+
+# Setup fzf previews
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
+
+# fzf preview for tmux
+export FZF_TMUX_OPTS=" -p90%,70% "
