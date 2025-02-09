@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "i3lock -i /home/piush/Pictures/Wallpapers/sky_wallpaper.png",
+    "action" : "i3lock -e -f -t -i /home/piush/Pictures/Wallpapers/cactus_wallpaper.png",
     "text" : "Lock",
     "keybind" : "l"
 }

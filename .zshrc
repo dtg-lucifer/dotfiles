@@ -58,7 +58,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export OPENAI_KEY=
 export PATH=$PATH:/usr/local/bin:/opt/clion-2024.3.2/bin/clion
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
