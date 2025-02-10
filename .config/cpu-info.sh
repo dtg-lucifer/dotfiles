@@ -1,0 +1,1 @@
+scripts/cpu-info.sh

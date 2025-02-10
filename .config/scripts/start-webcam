@@ -1,3 +1,0 @@
-# /bin/bash
-
-scrcpy --video-source=camera --camera-fps=60 --orientation=90 --camera-ar=1:1
