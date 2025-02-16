@@ -4,12 +4,12 @@ iatest=$(expr index "$-" i)
 #######################################################
 # SOURCED ALIASES AND SCRIPTS BY zachbrowne.me
 #######################################################
-if command -v fastfetch &> /dev/null; then
-    # Only run fastfetch if we're in an interactive shell
-    if [[ $- == *i* ]]; then
-        fastfetch
-    fi
-fi
+# if command -v fastfetch &> /dev/null; then
+#     # Only run fastfetch if we're in an interactive shell
+#     if [[ $- == *i* ]]; then
+#         fastfetch | lolcat
+#     fi
+# fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
