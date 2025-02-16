@@ -33,18 +33,14 @@ alias lol="lolcat"
 alias clion="/opt/clion-2024.3.2/bin/clion"
 
 alias l="eza --icons=always --color=always --grid"
-# alias lc="colorls -a"
 alias lt="eza -@ --icons=always --color=always --git --git-repos --git-ignore --long --tree -o"
 alias la="eza -@ --icons=always --color=always --git --git-repos --long -o --all --all"
 alias ls="eza -@ --icons=always --color=always --git --git-repos --git-ignore --long -o"
-# alias ls="eza --color=always --long --icons=always"
-# alias tree="colorls --tree --report"
 alias t="eza --tree --icons=always --color=always --git --git-repos --git-ignore"
 alias tree="t"
 alias dc="docker compose"
 alias lg="lazygit"
 alias cat="batcat"
-# alias fzf="fzf --exclude node_modules --exclude .git"
 
 alias ganache="/home/piush/Apps/squashfs-root/Ganache --no-sandbox"
 

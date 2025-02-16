@@ -16,8 +16,8 @@ background-blur-radius = 20
 cursor-style = block
 
 window-decoration = false
-window-padding-x = 10,10
-window-padding-y = 10,10
+window-padding-x = 8,8
+window-padding-y = 5,5
 # window-padding-balance = true
 window-theme = ghostty
 window-height = 40
