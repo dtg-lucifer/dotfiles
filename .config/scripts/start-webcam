@@ -1,3 +1,4 @@
 # /bin/bash
 
+# scrcpy --video-source=camera --camera-fps=60 --orientation=90 --camera-ar=1:1 --no-audio --v4l2-sink=/dev/video5
 scrcpy --video-source=camera --camera-fps=60 --orientation=90 --camera-ar=1:1 --no-audio

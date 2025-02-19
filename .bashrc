@@ -11,6 +11,8 @@ iatest=$(expr index "$-" i)
 #     fi
 # fi
 
+echo "$(cat ~/.banner)" | lolcat
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
