@@ -173,11 +173,6 @@ alias bd='cd "$OLDPWD"'
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
 
-# aliases for multiple directory listing commands
-alias la='ls -Alh'                # show hidden files
-alias ls='ls -aFh --color=always' # add colors and file type extensions
-alias ll='ls -Fls'                # long listing format
-
 alias n="nvim"
 alias g="git"
 alias c="clear"
@@ -361,15 +356,15 @@ up() {
 	cd $d
 }
 
-# Automatically do an ls after each cd, z, or zoxide
-cd ()
-{
-	if [ -n "$1" ]; then
-		builtin cd "$@" && ls
-	else
-		builtin cd ~ && ls
-	fi
-}
+# # Automatically do an ls after each cd, z, or zoxide
+# cd ()
+# {
+# 	if [ -n "$1" ]; then
+# 		builtin cd "$@" && ls
+# 	else
+# 		builtin cd ~ && ls
+# 	fi
+# }
 
 # Returns the last 2 fields of the working directory
 pwdtail() {
@@ -613,30 +608,30 @@ gcom() {
 	git add .
 	git commit -m "$1"
 }
-lazyg() {
+gpush() {
 	git add .
 	git commit -m "$1"
 	git push
 }
 
-function hb {
-    if [ $# -eq 0 ]; then
-        echo "No file path specified."
-        return
-    elif [ ! -f "$1" ]; then
-        echo "File path does not exist."
-        return
-    fi
-
-    uri="http://bin.christitus.com/documents"
-    response=$(curl -s -X POST -d @"$1" "$uri")
-    if [ $? -eq 0 ]; then
-        hasteKey=$(echo $response | jq -r '.key')
-        echo "http://bin.christitus.com/$hasteKey"
-    else
-        echo "Failed to upload the document."
-    fi
-}
+# function hb {
+#     if [ $# -eq 0 ]; then
+#         echo "No file path specified."
+#         return
+#     elif [ ! -f "$1" ]; then
+#         echo "File path does not exist."
+#         return
+#     fi
+#
+#     uri="http://bin.christitus.com/documents"
+#     response=$(curl -s -X POST -d @"$1" "$uri")
+#     if [ $? -eq 0 ]; then
+#         hasteKey=$(echo $response | jq -r '.key')
+#         echo "http://bin.christitus.com/$hasteKey"
+#     else
+#         echo "Failed to upload the document."
+#     fi
+# }
 
 #######################################################
 # Set the ultimate amazing command prompt
