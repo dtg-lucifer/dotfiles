@@ -1,4 +1,6 @@
 fastfetch | lolcat
+print "\n"
+
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/piush/.zsh/completions:"* ]]; then export FPATH="/home/piush/.zsh/completions:$FPATH"; fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
