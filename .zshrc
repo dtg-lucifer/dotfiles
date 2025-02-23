@@ -1,5 +1,6 @@
-fastfetch | lolcat
-print "\n"
+# fastfetch | lolcat
+# print "\n"
+echo "$(cat ~/.banner)" | lolcat
 
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/piush/.zsh/completions:"* ]]; then export FPATH="/home/piush/.zsh/completions:$FPATH"; fi
