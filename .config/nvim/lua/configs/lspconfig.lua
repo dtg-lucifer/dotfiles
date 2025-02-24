@@ -15,7 +15,7 @@ local servers = {
   "clangd",
   "jdtls",
   "pylsp",
-  "pylyzer"
+  -- "pylyzer"
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -40,6 +40,10 @@ lspconfig.ts_ls.setup {
   }
 }
 
+lspconfig.clangd.setup({
+  filetypes = { "c", "cpp", "objc", "objcpp" }
+})
+
 lspconfig.denols.setup {
   on_attach = nvlsp.on_attach,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
@@ -50,14 +54,14 @@ lspconfig.pylsp.setup {
   filetypes = { "python" }
 }
 
-lspconfig.pylyzer.setup {
-  filetypes = { "python" },
-  settings = {
-    python = {
-      checkOnType = false,
-      -- diagnostics = true,
-      inlayHints = true,
-      smartCompletion = true
-    }
-  }
-}
+-- lspconfig.pylyzer.setup {
+--   filetypes = { "python" },
+--   settings = {
+--     python = {
+--       checkOnType = false,
+--       diagnostics = true,
+--       inlayHints = true,
+--       smartCompletion = true
+--     }
+--   }
+-- }
