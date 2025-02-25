@@ -49,6 +49,9 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/scripts/brightnessctl Up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/scripts/brightnessctl Down
+
 bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym Shift+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 bindsym Shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
