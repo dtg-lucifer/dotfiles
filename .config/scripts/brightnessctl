@@ -1,0 +1,26 @@
+#!/bin/bash
+
+MON="eDP"   # Find monitor name: xrandr | grep " connected"
+STEP=0.05      # Brightness step (e.g., 0.05 = 5%)
+
+# Get current brightness
+CurrBright=$(xrandr --verbose | grep -A5 "^$MON" | grep Brightness | awk '{print $2}')
+
+# Calculate new brightness
+if [[ "$1" == "Up" || "$1" == "+" ]]; then
+  NewBright=$(echo "$CurrBright + $STEP" | bc)
+elif [[ "$1" == "Down" || "$1" == "-" ]]; then
+  NewBright=$(echo "$CurrBright - $STEP" | bc)
+else
+  echo "Usage: $0 {Up|Down|+|-}"
+  exit 1
+fi
+
+# Clamp brightness between 0.1 and 1.0 to avoid complete darkness
+NewBright=$(echo "$NewBright" | awk '{if($1>1.0) print 1.0; else if($1<0.1) print 0.1; else print $1}')
+
+# Apply new brightness
+xrandr --output "$MON" --brightness "$NewBright"
+
+# Display new brightness
+printf "Monitor: %s | Brightness: %.2f\n" "$MON" "$NewBright"
