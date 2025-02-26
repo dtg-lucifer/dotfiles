@@ -59,6 +59,14 @@ export LINUXTOOLBOXDIR="$HOME/linuxtoolbox"
 # Allow ctrl-S for history navigation (with ctrl-R)
 [[ $- == *i* ]] && stty -ixon
 
+# fzf
+eval "$(/home/linuxbrew/.linuxbrew/bin/fzf --bash)"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
+export FZF_CTRL_T_COMMAND="$FZF_CTRL_T_COMMAND"
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+
+
 # Ignore case on auto-completion
 # Note: bind used instead of sticking these in .inputrc
 if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
