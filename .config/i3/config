@@ -1,7 +1,7 @@
 # Gaps
-gaps inner 8
+gaps inner 6
 gaps outer 0
-gaps bottom 0
+# gaps bottom 8
 
 # smart_gaps on
 
@@ -204,7 +204,9 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144
-# exec_always --no-startup-id xrandr --output HDMI-A-1-0 --mode 1920x1080 --rate 100 --right-to eDP
+exec_always --no-startup-id xrandr --output HDMI-A-1-0 --mode 1920x1080 --rate 100 --right-to eDP
+
+exec_always --no-startup-id xrandr --output eDP --brightness "$(cat ~/.brightness_lvl)"
 
 exec_always --no-startup-id python3 ~/.config/autotiling/autotiling/main.py --limit 2
 exec_always --no-startup-id feh --recursive --bg-scale ~/Pictures/Wallpapers/gruvbox_astro.jpg
