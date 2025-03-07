@@ -60,6 +60,7 @@ bindsym Shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # bindsym $mod+Ctrl+e exec --no-startup-id nautilus
 # kill focused window
 bindsym $mod+q kill
+bindsym Mod1+q kill
 
 # screenshot
 bindsym Ctrl+Shift+s exec --no-startup-id flameshot gui
