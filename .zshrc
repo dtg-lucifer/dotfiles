@@ -33,6 +33,8 @@ alias ff="fastfetch | lolcat"
 alias ss="cmatrix -b -s -C blue"
 alias lol="lolcat"
 
+alias k="khal calendar"
+
 alias clion="/opt/clion-2024.3.2/bin/clion"
 
 alias l="eza --icons=always --color=always --grid"
@@ -71,3 +73,11 @@ export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | 
 
 # fzf preview for tmux
 export FZF_TMUX_OPTS=" -p90%,70% "
+
+# pnpm
+export PNPM_HOME="/home/piush/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

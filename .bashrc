@@ -60,6 +60,7 @@ export LINUXTOOLBOXDIR="$HOME/linuxtoolbox"
 [[ $- == *i* ]] && stty -ixon
 
 # fzf
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/fzf --bash)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git --exclude node_modules"
@@ -664,3 +665,5 @@ eval "$(zoxide init bash)"
 if [[ "$(tty)" == "/dev/tty1" ]] && [ -f "$HOME/.xinitrc" ] && grep -q "^exec dwm" "$HOME/.xinitrc"; then
     startx
 fi
+
+source /usr/share/bash-completion/completions/fzf
