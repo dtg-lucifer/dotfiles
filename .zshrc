@@ -33,6 +33,7 @@ alias ff="fastfetch | lolcat"
 alias ss="cmatrix -b -s -C blue"
 alias lol="lolcat"
 
+alias clock="tty-clock -s -S -c -C 5 -x -b -t"
 alias k="khal calendar"
 
 alias clion="/opt/clion-2024.3.2/bin/clion"

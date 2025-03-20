@@ -667,3 +667,4 @@ if [[ "$(tty)" == "/dev/tty1" ]] && [ -f "$HOME/.xinitrc" ] && grep -q "^exec dw
 fi
 
 source /usr/share/bash-completion/completions/fzf
+source /home/piush/.starship_completions

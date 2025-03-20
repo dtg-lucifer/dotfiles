@@ -179,16 +179,16 @@ workspace $ws8 output eDP
 workspace $ws9 output eDP
 workspace $ws10 output eDP
 
-workspace $ws11 output HDMI-A-1-0
-workspace $ws12 output HDMI-A-1-0
-workspace $ws13 output HDMI-A-1-0
-workspace $ws14 output HDMI-A-1-0
-workspace $ws15 output HDMI-A-1-0
-workspace $ws16 output HDMI-A-1-0
-workspace $ws17 output HDMI-A-1-0
-workspace $ws18 output HDMI-A-1-0
-workspace $ws19 output HDMI-A-1-0
-workspace $ws20 output HDMI-A-1-0
+workspace $ws11 output $sm
+workspace $ws12 output $sm
+workspace $ws13 output $sm
+workspace $ws14 output $sm
+workspace $ws15 output $sm
+workspace $ws16 output $sm
+workspace $ws17 output $sm
+workspace $ws18 output $sm
+workspace $ws19 output $sm
+workspace $ws20 output $sm
 
 # bindsym Mod1+m exec --no-startup-id xrandr --output HDMI-A-1-0 --rate 100 --mode 1920x1080 --right-of eDP
 bindsym Mod1+Shift+m exec --no-startup-id ~/.config/polybar/scripts/monitor_bar.sh
@@ -234,5 +234,5 @@ exec_always --no-startup-id xinput set-prop 9 304 1
 exec_always --no-startup-id xinput set-prop 9 331 1
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
