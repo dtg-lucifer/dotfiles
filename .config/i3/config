@@ -8,6 +8,7 @@ gaps outer 0
 # Border settings for windows
 for_window [class=".*"] border pixel 1
 for_window [class="Rofi"] floating enable
+for_window [class="gnome-calculator"] floating enable
 # for_window [class="**.sticky"] floating enable
 for_window [class="Rofi"] border pixel 0
 for_window [floating] border none
@@ -191,7 +192,7 @@ workspace $ws19 output $sm
 workspace $ws20 output $sm
 
 # bindsym Mod1+m exec --no-startup-id xrandr --output HDMI-A-1-0 --rate 100 --mode 1920x1080 --right-of eDP
-bindsym Mod1+Shift+m exec --no-startup-id ~/.config/polybar/scripts/monitor_bar.sh
+bindsym Mod1+Shift+m exec_always --no-startup-id ~/.config/polybar/scripts/monitor_bar.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
