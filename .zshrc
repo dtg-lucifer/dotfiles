@@ -2,6 +2,9 @@
 # print "\n"
 echo "$(cat ~/.banner)" | lolcat
 
+DISABLE_AUTO_UPDATE="true"
+DISABLE_UPDATE_PROMPT="false"
+
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/piush/.zsh/completions:"* ]]; then export FPATH="/home/piush/.zsh/completions:$FPATH"; fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -16,8 +19,8 @@ plugins=(
   git 
   zsh-autosuggestions 
   # zsh-syntax-highlighting
-  # zsh-autocomplete
   fast-syntax-highlighting
+  # zsh-autocomplete
 )
 
 # source /home/piush/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -52,6 +55,9 @@ alias ganache="/home/piush/Apps/squashfs-root/Ganache --no-sandbox"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/fzf --zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
