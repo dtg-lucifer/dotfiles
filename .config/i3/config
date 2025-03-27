@@ -191,9 +191,6 @@ workspace $ws18 output $sm
 workspace $ws19 output $sm
 workspace $ws20 output $sm
 
-# bindsym Mod1+m exec --no-startup-id xrandr --output HDMI-A-1-0 --rate 100 --mode 1920x1080 --right-of eDP
-bindsym Mod1+Shift+m exec_always --no-startup-id ~/.config/polybar/scripts/monitor_bar.sh
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -221,11 +218,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# monitor setup
+bindsym Mod1+Shift+m exec --no-startup-id sh ~/.config/polybar/scripts/monitor_bar.sh
+bindsym $mod+Shift+m exec --no-startup-id sh ~/.config/polybar/scripts/monitor_bar.sh
+
+
 # =============== Startups ===============
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144
-exec_always --no-startup-id xrandr --output HDMI-A-1-0 --mode 1920x1080 --rate 100 --right-to eDP
+# exec_always --no-startup-id xrandr --output HDMI-A-1-0 --mode 1920x1080 --rate 100 --right-to eDP
 
 exec_always --no-startup-id xrandr --output eDP --brightness "$(cat ~/.brightness_lvl)"
 
