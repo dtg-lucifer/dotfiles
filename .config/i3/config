@@ -9,6 +9,8 @@ gaps outer 0
 for_window [class=".*"] border pixel 1
 for_window [class="Rofi"] floating enable
 for_window [class="gnome-calculator"] floating enable
+for_window [class="org.gnome.Characters"] floating enable
+for_window [class="org.gnome.clocks"] floating enable
 # for_window [class="**.sticky"] floating enable
 for_window [class="Rofi"] border pixel 0
 for_window [floating] border none
@@ -61,6 +63,9 @@ bindsym Shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # kill focused window
 bindsym $mod+q kill
 bindsym Mod1+q kill
+
+# emoji panel
+bindsym $mod+m gnome-characters
 
 # screenshot
 bindsym Ctrl+Shift+s exec --no-startup-id flameshot gui
