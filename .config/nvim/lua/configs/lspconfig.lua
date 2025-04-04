@@ -15,11 +15,13 @@ local servers = {
   "clangd",
   "jdtls",
   "pylsp",
-  -- "pylyzer"
+  "html",
+  "htmx",
+  "templ",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
-require'lspconfig'.gopls.setup{}
+require("lspconfig").gopls.setup {}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -34,24 +36,25 @@ lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-  root_dir = lspconfig.util.root_pattern("package.json"),
+  root_dir = lspconfig.util.root_pattern "package.json",
   filetypes = {
-    "javascript"
-  }
+    "javascript",
+  },
 }
-
-lspconfig.clangd.setup({
-  filetypes = { "c", "cpp", "objc", "objcpp" }
-})
 
 lspconfig.denols.setup {
   on_attach = nvlsp.on_attach,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
+-- C / Cpp
+lspconfig.clangd.setup {
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+}
+
 -- python
 lspconfig.pylsp.setup {
-  filetypes = { "python" }
+  filetypes = { "python" },
 }
 
 -- lspconfig.pylyzer.setup {

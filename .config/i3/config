@@ -7,14 +7,18 @@ gaps outer 0
 
 # Border settings for windows
 for_window [class=".*"] border pixel 1
+
 for_window [class="Rofi"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="org.gnome.Characters"] floating enable
 for_window [class="org.gnome.clocks"] floating enable
+for_window [class="com.vixalien.sticky"] floating enable
+
 # for_window [class="**.sticky"] floating enable
 for_window [class="Rofi"] border pixel 0
+for_window [class="org.gnome.Characters"] border pixel 1
 for_window [floating] border none
-# for_window [class="ghostty"] border pixel 1
+for_window [class="ghostty"] border pixel 1
 
 # Remove borders for focused windows
 # hide_edge_borders smart
