@@ -16,9 +16,9 @@ for_window [class="com.vixalien.sticky"] floating enable
 
 # for_window [class="**.sticky"] floating enable
 for_window [class="Rofi"] border pixel 0
-for_window [class="org.gnome.Characters"] border pixel 1
+# for_window [class="org.gnome.Characters"] border pixel 1
 for_window [floating] border none
-for_window [class="ghostty"] border pixel 1
+# for_window [class="ghostty"] border pixel 1
 
 # Remove borders for focused windows
 # hide_edge_borders smart
