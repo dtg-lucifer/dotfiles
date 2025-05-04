@@ -38,9 +38,9 @@
 }
 
 /* Hide the ">" chevron icon */
-.codicon-tree-item-expanded:before {
+/* .codicon-tree-item-expanded:before {
   display: none !important;
-}
+} */
 
 /* List item label name */
 .monaco-list.list_id_1 .monaco-list-row.selected .label-name {
@@ -240,7 +240,7 @@
   background: rgba(0, 0, 0, 0.15);
   top: 0;
   left: 0;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(5px);
 }
 
 /* Command palette's input box placeholder. */
