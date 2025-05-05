@@ -97,7 +97,15 @@
   // "git.openRepositoryInParentFolders": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "oneDarkPro.vivid": true,
-  "editor.semanticTokenColorCustomizations": {},
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "*.unused": {
+        "foreground": "#FFFF00", // Yellow color
+        "fontStyle": "italic underline"
+      }
+    }
+  },
+  "editor.semanticHighlighting.enabled": true,
   "editor.tokenColorCustomizations": {
     "[*Light*]": {
       "textMateRules": [
@@ -110,6 +118,7 @@
       ]
     },
     "[*]": {
+      "comments": "#fbe843",
       "textMateRules": [
         {
           "scope": "ref.matchtext",
@@ -373,7 +382,7 @@
     * Code
     **/
   // Include "-" in word selection.
-  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  // "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
   "emmet.includeLanguages": {
     "blade": "html",
     "vue-html": "html",
@@ -417,12 +426,13 @@
   "explorer.sortOrder": "type",
   "prettier.tabWidth": 4,
   "editor.wordWrapColumn": 120,
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "off",
+  "files.autoSaveDelay": 2000,
   "editor.quickSuggestions": {
     "strings": true
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -441,15 +451,15 @@
   },
   "tailwindCSS.experimental.configFile": null,
   "editor.fontWeight": "400",
-  // "editor.inlineSuggest.suppressSuggestions": true,
   "editor.padding.top": 4,
   "editor.stickyScroll.enabled": false,
   "workbench.tree.enableStickyScroll": false,
-  "workbench.colorTheme": "Aura Dracula Spirit",
   "workbench.tree.renderIndentGuides": "onHover",
   "workbench.tree.indent": 8,
   "workbench.editor.editorActionsLocation": "titleBar",
-  "workbench.activityBar.location": "hidden",
   "git.openRepositoryInParentFolders": "never",
   "workbench.statusBar.visible": false,
+  "animations.Install-Method": "Apc Customize UI++",
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "GitHub Dark Default",
 }
