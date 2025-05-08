@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# === CONFIG ===
+RESTORE_FROM="/mnt/backup/home-backup-YYYYMMDD_HHMMSS"
+TARGET_HOME="/home/$(whoami)"
+
+# === RESTORE ===
+echo "[!] Make sure you are restoring to the correct user: $(whoami)"
+read -p "Continue with restore? (y/n): " confirm
+[[ "$confirm" != "y" ]] && exit 1
+
+echo "[+] Restoring home directory from $RESTORE_FROM to $TARGET_HOME..."
+rsync -aAXv "$RESTORE_FROM/" "$TARGET_HOME/"
+
+# Fix ownership just in case
+echo "[+] Fixing ownership..."
+chown -R "$(whoami):$(whoami)" "$TARGET_HOME"
+
+echo "[✓] Restore complete."
+

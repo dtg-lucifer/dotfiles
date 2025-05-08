@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# === CONFIG ===
+USER_HOME="$HOME"
+BACKUP_DIR="/mnt/backup/home-backup-$(date +%Y%m%d_%H%M%S)"
+
+# === BACKUP ===
+echo "[+] Backing up $USER_HOME to $BACKUP_DIR..."
+mkdir -p "$BACKUP_DIR"
+rsync -aAXv --exclude='.cache' --exclude='Downloads' "$USER_HOME/" "$BACKUP_DIR/"
+
+echo "[✓] Backup completed successfully."
+echo "Location: $BACKUP_DIR"
+
