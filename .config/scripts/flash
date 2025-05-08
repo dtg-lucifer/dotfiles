@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Usage check
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <iso_file> <device>"
+    echo "Example: $0 any.iso /dev/sda"
+    exit 1
+fi
+
+ISO="$1"
+DEVICE="$2"
+
+# Check if ISO file exists
+if [ ! -f "$ISO" ]; then
+    echo "Error: ISO file '$ISO' does not exist."
+    exit 1
+fi
+
+# Confirm that device exists
+if [ ! -b "$DEVICE" ]; then
+    echo "Error: Device '$DEVICE' does not exist or is not a block device."
+    exit 1
+fi
+
+echo "[*] Unmounting all partitions on $DEVICE..."
+sudo umount "${DEVICE}"* || echo "Some partitions may already be unmounted."
+
+echo "[*] Flashing ISO to $DEVICE using dd..."
+sudo dd if="$ISO" of="$DEVICE" bs=4M status=progress oflag=sync
+
+echo "[*] Verifying write with cmp (this may take a while)..."
+sudo cmp "$ISO" "$DEVICE" && echo "Verification successful!" || echo "Verification failed."
+
+echo "[*] Done."
+
