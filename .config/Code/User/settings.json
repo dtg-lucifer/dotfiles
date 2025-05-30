@@ -12,7 +12,7 @@
   "editor.tabSize": 2,
   "editor.showUnused": true,
   "editor.formatOnPaste": true,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "Monokai Pro Icons",
   "editor.cursorStyle": "block",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "smooth",
@@ -54,7 +54,6 @@
       "icon": "terminal-ubuntu"
     }
   },
-  // "window.titleBarStyle": "native",
   "C_Cpp.default.compilerPath": "/usr/bin/g++",
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
@@ -84,7 +83,12 @@
       "editor.findMatchBorder": "#84FFFF",
       "selection.background": "#84FFFF40",
       "statusBarItem.remoteBackground": "#84FFFF"
-    }
+    },
+    "statusBar.background": "#171819",
+    "statusBar.noFolderBackground": "#171819",
+    "statusBar.debuggingBackground": "#171819",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.debuggingForeground": "#ffffff"
   },
   "workbench.colorTheme.accentColor": "Sky",
   "github.copilot.enable": {
@@ -256,7 +260,7 @@
     {
       "text": "@FIXME",
       "color": "rgb(255, 255, 255)",
-      "backgroundColor": "grey",
+      "backgroundColor": "red",
       "fontStyle": "italic",
       "fontWeight": "bold",
       "isRegex": false,
@@ -264,8 +268,8 @@
     },
     {
       "text": "@NOTE",
-      "color": "#00FFFF",
-      "backgroundColor": "blue",
+      "color": "#000000",
+      "backgroundColor": "cyan",
       "fontStyle": "italic",
       "fontWeight": "bold",
       "isRegex": false,
@@ -290,7 +294,7 @@
       "isCaseSensitive": false
     }
   ],
-  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": false,
   "ansible.lightspeed.enabled": false,
   "[css]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
@@ -324,6 +328,7 @@
   "editor.emptySelectionClipboard": false,
   "workbench.editor.enablePreview": false,
   "window.newWindowDimensions": "inherit",
+  "window.restoreWindows": "none",
   // "editor.multiCursorModifier": "ctrlCmd",
   "files.trimTrailingWhitespace": true,
   // "diffEditor.renderSideBySide": false,
@@ -406,7 +411,7 @@
     "editor.formatOnSave": true
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "denoland.vscode-deno",
     "editor.formatOnSave": true
   },
   "[tailwindcss]": {
@@ -425,7 +430,7 @@
   "prettier.useEditorConfig": false,
   "explorer.sortOrder": "type",
   "prettier.tabWidth": 4,
-  "editor.wordWrapColumn": 120,
+  // "editor.wordWrapColumn": 120,
   "files.autoSave": "off",
   "files.autoSaveDelay": 2000,
   "editor.quickSuggestions": {
@@ -439,13 +444,11 @@
   },
   "security.workspace.trust.untrustedFiles": "open",
   "editor.linkedEditing": true,
-  "diffEditor.wordWrap": "on",
+  "diffEditor.wordWrap": "off",
   "notebook.output.wordWrap": true,
   "editor.fontSize": 14,
   "editor.minimap.maxColumn": 250,
   "editor.accessibilitySupport": "off",
-  "chat.editor.wordWrap": "on",
-  "editor.wordWrap": "wordWrapColumn",
   "tailwindCSS.includeLanguages": {
     "plaintext": "html"
   },
@@ -458,15 +461,30 @@
   "workbench.tree.indent": 8,
   "workbench.editor.editorActionsLocation": "titleBar",
   "git.openRepositoryInParentFolders": "never",
-  "workbench.statusBar.visible": false,
   "animations.Install-Method": "Apc Customize UI++",
   "rust-analyzer.showSyntaxTree": true,
   "rust-analyzer.restartServerOnConfigChange": true,
   "rust-analyzer.inlayHints.genericParameterHints.const.enable": false,
-  "rust-analyzer.inlayHints.parameterHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "workbench.experimental.share.enabled": true,
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 189, 47, 0.8)",
+  "vim.highlightedyank.textColor": "#202020",
+  "vim.highlightedyank.duration": 100,
   "workbench.colorTheme": "Bearded Theme Monokai Black",
-  "rust-analyzer.inlayHints.chainingHints.enable": false,
-  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "workbench.editor.empty.hint": "hidden",
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "sqlite3-editor.ui.movePanelIfSpaceAllows": "left",
+  "sqlite3-editor.ui.minimizePanel": false,
   "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false,
+  "C_Cpp.default.includePath": [
+    "/home/piush/avr-toolchain/avr/include"
+  ],
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+  "rust-analyzer.inlayHints.renderColons": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
 }

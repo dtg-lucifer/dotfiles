@@ -25,6 +25,7 @@ plugins=(
 
 # source /home/piush/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $ZSH/oh-my-zsh.sh
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -63,6 +64,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:/home/piush/avr-toolchain/bin/
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

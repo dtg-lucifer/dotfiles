@@ -55,6 +55,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+bindsym XF86Calculator exec gnome-calculator
+
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/scripts/brightnessctl Up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/scripts/brightnessctl Down
 
@@ -73,6 +75,7 @@ bindsym $mod+m gnome-characters
 
 # screenshot
 bindsym Ctrl+Shift+s exec --no-startup-id flameshot gui
+bindsym Ctrl+Shift+m exec --no-startup-id screenpen
 
 # start dmenu (a program launcher)
 # bindsym $mod+e exec rofi -show drun -normal-window
